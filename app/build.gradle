@@ -59,6 +59,12 @@ android {
     }
 }
 
+android.applicationVariants.all { variant ->
+    variant.outputs.all {
+        outputFileName = "pageHeroes-Eleflow-${variant.versionName}.apk"
+    }
+}
+
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlin_version"
