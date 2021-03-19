@@ -27,7 +27,7 @@ android {
         buildConfigField("String", "API_KEY", "\"108ed2ed13beb07bbe557cb18a8e0f6b\"")
         buildConfigField("String", "HASH_KEY", "\"060c65812120e5ef367f07911e5af528\"")
         buildConfigField("String", "API_PRIVATE_KEY", "\"2b9f5cb3c3ea59ec1c84b5998f3f5fe9fe2da5a5\"")
-        buildConfigField("Boolean", "ANALYTICS", "false")
+        buildConfigField("Boolean", "ANALYTICS", "true")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
