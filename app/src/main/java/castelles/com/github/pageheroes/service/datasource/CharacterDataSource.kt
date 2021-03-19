@@ -2,8 +2,6 @@ package castelles.com.github.pageheroes.service.datasource
 
 import castelles.com.github.pageheroes.BuildConfig
 import castelles.com.github.pageheroes.service.api.CharacterApi
-import castelles.com.github.pageheroes.service.api.OrderBy
-import java.util.*
 
 class CharacterDataSource: BaseDataSource() {
 

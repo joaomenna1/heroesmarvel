@@ -2,6 +2,7 @@
 	<dimen name="margin2">4.8dp</dimen>
 	<dimen name="margin2_bar">2dp</dimen>
 	<dimen name="margin2_label">10dp</dimen>
+	<dimen name="padding_arrow">6dp</dimen>
 	<dimen name="margin82">196.8dp</dimen>
 	<dimen name="size0">0dp</dimen>
 	<dimen name="margin32">76.8dp</dimen>
@@ -18,14 +19,14 @@
 	<dimen name="margin145">348dp</dimen>
 	<dimen name="size35">106dp</dimen>
 	<dimen name="size78">187.2dp</dimen>
-	<dimen name="size12">58dp</dimen>
+	<dimen name="size12">50dp</dimen>
 	<dimen name="text_size21">50.4sp</dimen>
 	<dimen name="text_size8">19.2sp</dimen>
 	<dimen name="text_size14">33.6sp</dimen>
 	<dimen name="text_size12">28.8sp</dimen>
 	<dimen name="text_size18">43.2sp</dimen>
-	<dimen name="size135">150dp</dimen>
-	<dimen name="button_size18">18sp</dimen>
+	<dimen name="size135">160dp</dimen>
+	<dimen name="button_size18">20sp</dimen>
 	<dimen name="margin16_page">20dp</dimen>
 	<dimen name="text_size10">18sp</dimen>
 	<dimen name="text_size6">12sp</dimen>
@@ -35,4 +36,5 @@
 	<dimen name="size140">140dp</dimen>
 	<dimen name="width100">100dp</dimen>
 	<dimen name="size50">50dp</dimen>
+	<dimen name="text_size">20sp</dimen>
 </resources>

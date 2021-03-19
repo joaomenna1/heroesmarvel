@@ -14,4 +14,8 @@
     <string name="_two" translatable="false">2</string>
     <string name="_three" translatable="false">3</string>
     <string name="forward">Avançar</string>
+    <string name="loading_characters">Carregando personagens</string>
+    <string name="chars_not_found">Não foi possível encontramos nenhum herói</string>
+    <string name="already_in_first_page">Você já está na página inicial</string>
+    <string name="searching_characters">Procurando personagens</string>
 </resources>

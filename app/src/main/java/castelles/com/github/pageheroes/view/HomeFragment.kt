@@ -1,18 +1,14 @@
 package castelles.com.github.pageheroes.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.NOT_FOCUSABLE
 import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo.IME_ACTION_GO
 import android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +17,7 @@ import castelles.com.github.pageheroes.R
 import castelles.com.github.pageheroes.data.Character
 import castelles.com.github.pageheroes.data.Characters
 import castelles.com.github.pageheroes.databinding.FragmentHomeBinding
+import castelles.com.github.pageheroes.util.LoadController
 import castelles.com.github.pageheroes.util.Tracker
 import castelles.com.github.pageheroes.view.adapter.CharacterAdapter
 import castelles.com.github.pageheroes.viewmodel.HomeViewModel
@@ -33,6 +30,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private lateinit var adapter: CharacterAdapter
     private val itemsCharacters: MutableList<Character> = mutableListOf()
     private var section = 1
+
+    private lateinit var loadController: LoadController
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,8 +52,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
         setRecycler()
         setListeners()
 
+        setLoad()
         configureObservers()
         viewModel.getList()
+    }
+
+    private fun setLoad() {
+        loadController = LoadController(requireContext())
+        loadController.showStandardLoading(getString(R.string.loading_characters))
     }
 
     private fun configureObservers() {
@@ -87,17 +92,19 @@ class HomeFragment : Fragment(), View.OnClickListener {
         if (itemsCharacters.isEmpty()) {
             Toast.makeText(
                 requireContext(),
-                "Não foi possível encontramos nenhum herói",
+                getString(R.string.chars_not_found),
                 LENGTH_LONG
             ).show()
             next_arrow.isEnabled = false
         }
 
+        loadController.dismissIt()
         adapter.notifyDataSetChanged()
     }
 
     private fun onErrorGetCharacters(error: Throwable) {
         error.printStackTrace()
+        loadController.dismissIt()
         Crashes.trackError(error)
         Tracker.track(
             Tracker.TrackType.FAILED,
@@ -179,7 +186,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
             } else {
                 Toast.makeText(
                     requireContext(),
-                    "Você já está na página inicial",
+                    getString(R.string.already_in_first_page),
                     LENGTH_LONG
                 ).show()
             }
@@ -201,6 +208,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 input_search_char.isFocusable = false
                 input_search_char.isFocusableInTouchMode = true
 
+                loadController.showStandardLoading(getString(R.string.searching_characters))
+
                 Tracker.track(
                     Tracker.TrackType.DONE,
                     Tracker.EventType.SEARCH_HERO,
@@ -217,6 +226,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         deselectOthers(v)
         val page = v.text.toString().toInt()
 
+        loadController.showStandardLoading(getString(R.string.loading_characters))
         viewModel.getList(page = page)
     }
 

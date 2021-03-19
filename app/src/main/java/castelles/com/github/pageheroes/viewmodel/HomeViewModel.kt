@@ -1,18 +1,15 @@
 package castelles.com.github.pageheroes.viewmodel
 
 import android.os.Parcelable
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import castelles.com.github.pageheroes.data.Characters
-import castelles.com.github.pageheroes.service.api.OrderBy
 import castelles.com.github.pageheroes.service.datasource.CharacterDataSource
 import castelles.com.github.pageheroes.service.repository.CharacterRepository
 import kotlinx.android.parcel.Parcelize
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
-import java.util.*
 
 @Parcelize
 class HomeViewModel: ViewModel(), Parcelable {

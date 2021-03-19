@@ -1,7 +1,6 @@
 package castelles.com.github.pageheroes.app
 
 import android.content.Context
-import android.content.Intent
 import android.os.Process
 import castelles.com.github.pageheroes.BuildConfig
 import com.microsoft.appcenter.crashes.Crashes
