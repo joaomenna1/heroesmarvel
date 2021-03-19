@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="item"
+            type="castelles.com.github.pageheroes.data.Character" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="@dimen/width_dialog"
+        android:layout_height="@dimen/heigth_dialog"
+        android:background="@drawable/dialog_background">
+
+        <View
+            android:layout_width="@dimen/width330"
+            android:layout_height="@dimen/size1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/char_image"
+            image_download="@{item.thumbnail.path+ `.` + item.thumbnail.extension}"
+            android:layout_width="@dimen/size140"
+            android:layout_height="@dimen/size140"
+            android:layout_marginTop="@dimen/margin8"
+            android:src="@drawable/ic_launcher_foreground"
+            app:civ_border_color="@color/marvel_red"
+            app:civ_border_width="@dimen/margin2_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/char_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin2"
+            android:layout_marginTop="@dimen/margin8"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:text="@{item.name}"
+            android:textColor="@color/marvel_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/char_image" />
+
+        <TextView
+            android:id="@+id/char_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin8"
+            android:paddingHorizontal="@dimen/margin8"
+            android:layout_marginTop="@dimen/margin2"
+            android:fontFamily="@font/roboto_medium"
+            android:gravity="center"
+            android:text="@{item.description}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/char_name" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/char_details">
+
+            <TextView
+                android:id="@+id/appears_in"
+                android:layout_width="@dimen/width330"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin8"
+                android:layout_marginVertical="@dimen/margin8"
+                android:paddingHorizontal="@dimen/margin8"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/shows_in"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="@dimen/width330"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/margin8"
+                android:paddingVertical="@dimen/margin8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/appears_in">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/width100"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/comics"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size6" />
+
+                    <TextView
+                        android:id="@+id/comics_value"
+                        android:layout_width="@dimen/size50"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="end"
+                        android:text="@{item.comics.available + ``}"
+                        android:textSize="@dimen/text_size6" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/width100"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/series"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size6" />
+
+                    <TextView
+                        android:id="@+id/series_value"
+                        android:layout_width="@dimen/size50"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="end"
+                        android:text="@{item.series.available + ``}"
+                        android:textSize="@dimen/text_size6" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin2"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="@dimen/width100"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/stories"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size6" />
+
+                    <TextView
+                        android:id="@+id/stories_value"
+                        android:layout_width="@dimen/size50"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="end"
+                        android:text="@{item.stories.available + ``}"
+                        android:textSize="@dimen/text_size6" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

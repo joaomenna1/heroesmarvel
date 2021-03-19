@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PageHeroes</string>
+    <string name="search">SEARCH</string>
+    <string name="marvel">MARVEL</string>
+    <string name="test_front">FRONT-END TEST</string>
+    <string name="name">Name</string>
+    <string name="shows_in">Shows in</string>
+    <string name="comics">Comics</string>
+    <string name="series">Series</string>
+    <string name="stories">Stories</string>
+    <string name="character_name">Character Name</string>
+    <string name="back_button">Back</string>
+    <string name="forward">Forward</string>
+</resources>

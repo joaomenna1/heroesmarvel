@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PageHeroes</string>
+    <string name="search">BUSCA</string>
+    <string name="marvel">MARVEL</string>
+    <string name="test_front">TESTE FRONT-END</string>
+    <string name="name">Nome</string>
+    <string name="shows_in">Aparece em</string>
+    <string name="comics">Quadrinhos</string>
+    <string name="series">Séries</string>
+    <string name="stories">Histórias</string>
+    <string name="character_name">Nome do Personagem</string>
+    <string name="back_button">Voltar</string>
+    <string name="_one" translatable="false">1</string>
+    <string name="_two" translatable="false">2</string>
+    <string name="_three" translatable="false">3</string>
+    <string name="forward">Avançar</string>
+</resources>

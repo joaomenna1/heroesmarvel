@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="castelles.com.github.pageheroes.viewmodel.HomeViewModel" />
+
+        <variable
+            name="viewModel"
+            type="HomeViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="beforeDescendants"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:id="@+id/head_text_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin16"
+            android:layout_marginTop="@dimen/margin8"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/search"
+            android:textColor="@color/marvel_red"
+            android:textSize="@dimen/text_size10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/head_subtext_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin2"
+            android:layout_marginTop="@dimen/margin8"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/marvel"
+            android:textColor="@color/marvel_red"
+            android:textSize="@dimen/text_size10"
+            app:layout_constraintStart_toEndOf="@id/head_text_black"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/head_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin2"
+            android:layout_marginTop="@dimen/margin8"
+            android:fontFamily="@font/roboto_light"
+            android:text="@string/test_front"
+            android:textColor="@color/marvel_red"
+            android:textSize="@dimen/text_size10"
+            app:layout_constraintStart_toEndOf="@id/head_subtext_black"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="@dimen/size0"
+            android:layout_height="@dimen/margin2_bar"
+            android:background="@color/marvel_red"
+            app:layout_constraintEnd_toEndOf="@+id/head_text_black"
+            app:layout_constraintStart_toStartOf="@+id/head_text_black"
+            app:layout_constraintTop_toBottomOf="@id/head_text_black" />
+
+        <TextView
+            android:id="@+id/input_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin16"
+            android:layout_marginTop="@dimen/margin8"
+            android:fontFamily="@font/roboto"
+            android:text="@string/character_name"
+            android:textColor="@color/marvel_red"
+            android:textSize="@dimen/text_size10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/head_text_black" />
+
+        <EditText
+            android:id="@+id/input_search_char"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin16"
+            android:layout_marginTop="@dimen/margin2"
+            android:background="@drawable/theme_edittext"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_title"
+            android:autofillHints="@string/search"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/label_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin8"
+            android:background="@color/marvel_red"
+            android:fontFamily="@font/roboto"
+            android:paddingVertical="@dimen/margin2_label"
+            android:paddingStart="@dimen/size135"
+            android:text="@string/name"
+            android:textSize="@dimen/text_size10"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_search_char" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_items"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size0"
+            app:layout_constraintBottom_toTopOf="@+id/layout_footer"
+            app:layout_constraintTop_toBottomOf="@id/label_name"
+            tools:listitem="@layout/item_character" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/margin8"
+                android:paddingBottom="@dimen/margin16"
+                app:layout_constraintBottom_toTopOf="@id/footer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/previous_arrow"
+                    android:layout_width="@dimen/size0"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/arrow_back"
+                    android:contentDescription="@string/back_button" />
+
+                <LinearLayout
+                    android:id="@+id/layout_page_btns"
+                    android:layout_width="@dimen/size0"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/select_start"
+                        selected="@{true}"
+                        android:layout_width="@dimen/size12"
+                        android:layout_height="@dimen/size12"
+                        android:background="@drawable/btn_select_page"
+                        android:fontFamily="@font/roboto_light"
+                        android:stateListAnimator="@null"
+                        android:text="@string/_one"
+                        android:textColor="@drawable/text_select_page"
+                        android:textSize="@dimen/button_size18" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/select_middle"
+                        android:layout_width="@dimen/size12"
+                        android:layout_height="@dimen/size12"
+                        android:layout_marginStart="@dimen/margin16_page"
+                        android:background="@drawable/btn_select_page"
+                        android:fontFamily="@font/roboto_light"
+                        android:stateListAnimator="@null"
+                        android:text="@string/_two"
+                        android:textColor="@drawable/text_select_page"
+                        android:textSize="@dimen/button_size18" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/select_end"
+                        android:layout_width="@dimen/size12"
+                        android:layout_height="@dimen/size12"
+                        android:layout_marginStart="@dimen/margin16_page"
+                        android:background="@drawable/btn_select_page"
+                        android:fontFamily="@font/roboto_light"
+                        android:stateListAnimator="@null"
+                        android:text="@string/_three"
+                        android:textColor="@drawable/text_select_page"
+                        android:textSize="@dimen/button_size18" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/next_arrow"
+                    android:layout_width="@dimen/size0"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:src="@drawable/arrow_forward"
+                    android:contentDescription="@string/forward" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/footer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin8"
+                android:background="@color/marvel_red"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
