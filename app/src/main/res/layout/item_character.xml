@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="castelles.com.github.pageheroes.data.Character" />
+            type="joaomenna1.com.github.pageheroes.data.Character" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

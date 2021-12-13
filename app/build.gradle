@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "castelles.com.github.pageheroes"
+        applicationId "joaomenna1.com.github.pageheroes"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1

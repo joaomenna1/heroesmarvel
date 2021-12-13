@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="castelles.com.github.pageheroes.viewmodel.HomeViewModel" />
+        <import type="joaomenna1.com.github.pageheroes.viewmodel.HomeViewModel" />
 
         <variable
             name="viewModel"

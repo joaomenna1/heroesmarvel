@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="castelles.com.github.pageheroes.view.HomeFragment"
+        android:name="joaomenna1.com.github.pageheroes.view.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home"/>
 </navigation>
